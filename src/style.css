@@ -20,6 +20,18 @@ body {
   color: var(--myWhite);
 }
 
+/* -----------------------------SCROLL-BAR--------------------------------- */
+/* width */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: var(--myGrey);
+  border-radius: 10px;
+}
+
 /* ------------NAVBAR--------------------------- */
 
 .navbar {
@@ -85,12 +97,30 @@ body {
   border-width: thin;
 }
 
-.todo-heading-date{
-    font-size: .7rem;
-    font-weight: lighter;
-    color: var(--myLightGrey);
+.todo-heading-date {
+  font-size: 0.7rem;
+  font-weight: lighter;
+  color: var(--myLightGrey);
 }
 
+/* -----------------------------------PROJECT-SECTION--------------------------------------- */
+.project-section,
+.todo-section {
+  background-color: var(--myLightBlack);
+  border-radius: 10px;
+}
 .project-sub-section {
   padding: 2em 1em;
+}
+
+.project-name {
+  padding: 1em 0;
+}
+
+.project-name:nth-child(odd) > span {
+  color: var(--myBlue);
+}
+
+.project-list {
+  padding-top: 3em;
 }
