@@ -39,7 +39,7 @@ body {
   display: flex;
   justify-content: space-between;
   padding: 1em;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
 }
 
 .brand,
@@ -61,8 +61,17 @@ body {
   color: var(--myWhite);
 }
 
+.nav-span {
+  color: var(--myBlue);
+  transition: 0.3s;
+}
+
 .nav-links:hover {
   color: var(--myBlue);
+}
+
+.nav-link-item:hover > .nav-span {
+  color: var(--myWhite);
 }
 
 /* --------------------------APP-CONTENT----------------------------- */
@@ -122,5 +131,16 @@ body {
 }
 
 .project-list {
-  padding-top: 3em;
+  padding: 2em 0 1em 0;
+}
+
+.new-project-btn {
+  opacity: 0.5;
+  transition: 0.2s;
+  cursor: pointer;
+  float: right;
+}
+
+.new-project-btn:hover {
+  opacity: 1;
 }
