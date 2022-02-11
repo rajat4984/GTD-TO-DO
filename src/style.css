@@ -86,14 +86,6 @@ body {
   grid-column-gap: 3em;
 }
 
-/* .project-section {
-  background-color: teal;
-}
-
-.todo-section {
-  background-color: midnightblue;
-} */
-
 .todo-sub-section,
 .project-sub-section {
   padding: 2em;
@@ -101,6 +93,7 @@ body {
 
 .todo-heading,
 .project-heading {
+  font-size: 1.7rem;
   padding-bottom: 0.7em;
   border-bottom: 1px solid rgb(107, 106, 106);
   border-width: thin;
@@ -123,11 +116,18 @@ body {
 }
 
 .project-name {
-  padding: 1em 0;
+  padding: 0.6em 0;
+  transition: 0.2s;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 .project-name:nth-child(odd) > span {
   color: var(--myBlue);
+}
+
+.project-name:hover {
+  background-color: rgba(110, 110, 110, 0.384);
 }
 
 .project-list {
@@ -143,4 +143,66 @@ body {
 
 .new-project-btn:hover {
   opacity: 1;
+}
+
+/* -----------------------------------------TODO-SECTION--------------------------- */
+.todo-list {
+  padding: 2em;
+}
+
+.todo-item {
+  padding: 1.5em 0 0.7em 0;
+  border-bottom: 1px solid rgb(107, 106, 106);
+  border-width: thin;
+}
+
+.todo-list:first-child {
+  padding-top: 0;
+}
+
+.todo-title {
+  font-size: 1rem;
+  padding-bottom: 0.2em;
+  position: relative;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+
+label {
+  cursor: pointer;
+}
+
+label::before {
+  content: "";
+  background: url(./img/check-circle.svg);
+  background-position: center;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: -25px;
+  transform: scale(0) rotateZ(180deg);
+  transition: all 0.3s cubic-bezier(0.54, 0.01, 0, 1.49);
+}
+
+label::after {
+  content: "";
+  border: 2px solid #27ae60;
+  width: 14px;
+  height: 14px;
+  position: absolute;
+  left: -24px;
+  border-radius: 50%;
+}
+
+input[type="checkbox"]:checked + label::before {
+  transform: scale(1) rotateZ(0deg);
+}
+
+.todo-desc {
+  font-size: 0.8rem;
+  font-weight: lighter;
+  color: var(--myLightGrey);
 }
