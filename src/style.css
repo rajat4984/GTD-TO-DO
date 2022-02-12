@@ -90,7 +90,7 @@ a {
   display: grid;
   grid-template-columns: 1fr 3fr;
   justify-content: space-between;
-  padding: 3em;
+  padding: 3em 3em 10em 3em;
   max-width: 85%;
   grid-column-gap: 3em;
 }
@@ -135,19 +135,30 @@ a {
   border-radius: 5px;
 }
 
-.project-name:nth-child(odd) > span {
+.project-name:nth-child(2n + 3) > span {
   color: var(--myGreen);
 }
 
-.project-name:hover {
+.project-name-btn {
+  display: none;
+}
+
+.project-name:hover .project-name-btn {
+  display: inline;
+}
+
+.project-name-btn:hover {
   background-color: rgba(110, 110, 110, 0.384);
+  padding: 0.2em;
+  border-radius: 5px;
 }
 
 .project-list {
   padding: 2em 0 1em 0;
 }
 
-.new-project-btn {
+.new-project-btn,
+.project-name-btn {
   opacity: 0.5;
   transition: 0.2s;
   cursor: pointer;
@@ -167,8 +178,9 @@ a {
   padding: 1.5em 0 0.9em 0;
   border-bottom: 1px solid rgb(107, 106, 106);
   border-width: thin;
+  display: flex;
+  justify-content: space-between;
 }
-
 .todo-list:first-child {
   padding-top: 0;
 }
@@ -220,6 +232,21 @@ input[type="checkbox"]:checked + label::before {
   color: var(--myLightGrey);
 }
 
+.todo-icon-item {
+  display: none;
+  padding: 0 0.3em;
+  cursor: pointer;
+}
+
+.todo-item:hover .todo-icon-item {
+  display: inline;
+}
+
+.todo-icon-item:hover {
+  background-color: rgba(110, 110, 110, 0.384);
+  border-radius: 5px;
+}
+
 .new-todo-btn {
   background-color: var(--myGreen);
   color: var(--myWhite);
@@ -232,10 +259,13 @@ input[type="checkbox"]:checked + label::before {
   opacity: 1;
   cursor: pointer;
   transition: 0.2s;
+  border: 1px solid var(--myLightBlack);
 }
 
 .new-todo-btn:hover {
-  opacity: 0.7;
+  background-color: var(--myLightBlack);
+  border: 1px solid var(--myGreen);
+  color: var(--myGreen);
 }
 
 /* -------------------------------------FOOTER-------------------------- */
