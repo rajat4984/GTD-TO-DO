@@ -8,7 +8,7 @@ const todayArray = []
 
 const  callMakeTodo = ()=>{
     let newTodo = new makeTodo("rajat","i will do the work")
-    todayArray.push(newTodo)
+    todayArray.push(newTodo)      
     refreshTodayArray(newTodo)
     console.log(todayArray)
 }
