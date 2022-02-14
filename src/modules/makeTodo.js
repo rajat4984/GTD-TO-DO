@@ -10,4 +10,4 @@ class makeTodo {
 }
 
 
-export { makeTodo, insertTodo };
+export { makeTodo };

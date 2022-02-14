@@ -158,7 +158,8 @@ a {
 }
 
 .new-project-btn,
-.project-name-btn {
+.project-name-btn,                                /*Icons*/
+.modal-cross-icon {
   opacity: 0.5;
   transition: 0.2s;
   cursor: pointer;
@@ -195,11 +196,11 @@ input[type="checkbox"] {
   display: none;
 }
 
-label {
+.todo-label {
   cursor: pointer;
 }
 
-label::before {
+.todo-label::before {
   content: "";
   background: url(./img/check-circle.svg);
   background-position: center;
@@ -212,7 +213,7 @@ label::before {
   transition: all 0.3s cubic-bezier(0.54, 0.01, 0, 1.49);
 }
 
-label::after {
+.todo-label::after {
   content: "";
   border: 2px solid #27ae60;
   width: 14px;
@@ -222,7 +223,7 @@ label::after {
   border-radius: 50%;
 }
 
-input[type="checkbox"]:checked + label::before {
+input[type="checkbox"]:checked + .todo-label::before {
   transform: scale(1) rotateZ(0deg);
 }
 
@@ -247,7 +248,7 @@ input[type="checkbox"]:checked + label::before {
   border-radius: 5px;
 }
 
-.new-todo-btn {
+.new-todo-btn,.modal-todo-btn>button{
   background-color: var(--myGreen);
   color: var(--myWhite);
   font-size: 1rem;
@@ -262,7 +263,7 @@ input[type="checkbox"]:checked + label::before {
   border: 1px solid var(--myLightBlack);
 }
 
-.new-todo-btn:hover {
+.new-todo-btn:hover,.modal-todo-btn>button:hover {
   background-color: var(--myLightBlack);
   border: 1px solid var(--myGreen);
   color: var(--myGreen);
@@ -277,3 +278,67 @@ input[type="checkbox"]:checked + label::before {
   background-color: var(--myLightBlack);
   text-align: center;
 }
+
+/* -------------------------ADD NEW TODO MODAL----------------------------------------- */
+
+.modal-content {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  display: none;
+}
+
+.modal {
+  background-color: var(--myGrey);
+  width: 20%;
+  height: 50%;
+  padding: 1em;
+}
+
+.modal-heading{
+  border-bottom: 1px solid var(--myWhite);
+  padding-bottom: 1em;
+}
+
+.modal-todo-info{
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+} 
+
+.modal-todo-info >label,i{
+  padding: 1em 0;
+}
+
+.modal-desc-input,.modal-title-input{
+  padding: .5em;
+  width: 80%;
+  background-color: var(--myGrey);
+  border: 1px solid var(--myGreen);
+  border-radius: 5px;
+  outline: none;
+  color: var(--myWhite);
+  font-size: 1rem;
+}
+
+
+.modal-cross-icon:hover{
+  opacity: 1;
+}
+
+.modal-todo-btn > button{
+  width: 30%;
+}
+
+.modal-date-icon{
+  cursor: pointer;
+}
+
+
+

@@ -3,8 +3,8 @@ export default function (todo) {
     todoList.innerHTML += ` <div class="todo-item">
       <div class="todo-info">
         <div class="todo-title">
-          <input class="todo-checkbox" type="checkbox" id="id1" />
-          <label for="id1"> ${todo.title}</label>
+          <input class="todo-checkbox" type="checkbox" id=${todo.id} />
+          <label class="todo-label" for=${todo.id}> ${todo.title}</label>
         </div>
         <div class="todo-desc">${todo.desc}</div>
       </div>

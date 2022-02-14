@@ -1,15 +1,15 @@
 import {makeTodo} from './modules/MakeTodo'
-import refreshTodayArray from './modules/insertTodoDom'
 import './style.css'
+import insertTodoDom from './modules/insertTodoDom'
 
 const newTodoBtn =  document.querySelector(".new-todo-btn")
 const todayArray = []
 
 
 const  callMakeTodo = ()=>{
-    let newTodo = new makeTodo("rajat","i will do the work")
+    let newTodo = new makeTodo("rajat")
     todayArray.push(newTodo)      
-    refreshTodayArray(newTodo)
+    insertTodoDom(newTodo)
     console.log(todayArray)
 }
 
