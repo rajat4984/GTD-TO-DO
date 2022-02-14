@@ -1,4 +1,5 @@
 class makeTodo {
+  static myId = 0;
   constructor(title, desc = "") {
     makeTodo.myId += 1;
     this.title = title;
@@ -6,7 +7,8 @@ class makeTodo {
     this.id = makeTodo.myId;
   }
 
-  static myId = 0;
+  static makeTodo = 0
+
 }
 
 

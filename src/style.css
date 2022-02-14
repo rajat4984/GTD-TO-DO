@@ -234,7 +234,7 @@ input[type="checkbox"]:checked + .todo-label::before {
 }
 
 .todo-icon-item {
-  display: none;
+  /* display: none; */
   padding: 0 0.3em;
   cursor: pointer;
 }
@@ -288,10 +288,9 @@ input[type="checkbox"]:checked + .todo-label::before {
   width: 100%;
   height: 100vh;
   background-color: rgba(0,0,0,0.5);
-  display: flex;
+  display: none;
   justify-content: center;
   align-items: center;
-  display: none;
 }
 
 .modal {
@@ -299,6 +298,7 @@ input[type="checkbox"]:checked + .todo-label::before {
   width: 20%;
   height: 50%;
   padding: 1em;
+  border-radius: 10px;
 }
 
 .modal-heading{
