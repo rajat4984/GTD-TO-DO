@@ -1,3 +1,5 @@
+import { deleteTodo } from "./deleteTodo";
+
 function showTodayTodo(arr){
     for (let i = 0; i < arr.length; i++) {
         const todoList = document.querySelector(".todo-list");
@@ -15,8 +17,10 @@ function showTodayTodo(arr){
             <i class="bi bi-trash todo-icon-item"></i>
           </div>
         </div>`;
-        
     }
+
+    const deleteTodoIcon = document.querySelectorAll(".todo-icons > .bi-trash")
+    deleteTodo(deleteTodoIcon,arr)
 }
 
 export {showTodayTodo}
