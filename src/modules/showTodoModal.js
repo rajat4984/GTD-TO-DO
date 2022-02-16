@@ -11,7 +11,7 @@ function showTodoModal(arr) {
   const handleAddTodo = () => {
     let newTodo = new makeTodo(modalTitleInput.value, modalDescInput.value);
     arr.push(newTodo);
-    insertNewTodo(arr, newTodo);
+    insertNewTodo(arr);
     modalTitleInput.value = "";
     modalDescInput.value = "";
   };

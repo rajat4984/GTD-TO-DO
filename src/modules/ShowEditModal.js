@@ -16,7 +16,6 @@ function showEditModal(editTodoIcon, arr) {
     editModalTitleInput.value = arr[elementId].title;
     editModalDescInput.value = arr[elementId].desc;
 
-    console.log(elementId);
 
     const handleEditTodo = () => {
       editModal.style.display = "none";
@@ -25,7 +24,7 @@ function showEditModal(editTodoIcon, arr) {
       titleLabel[elementId].textContent = editModalTitleInput.value;
       descLabel[elementId].textContent = editModalDescInput.value;
       editTodoBtn.removeEventListener("click", handleEditTodo);
-      console.log(elementId);
+      console.log(arr);
     };
     editTodoBtn.addEventListener("click", handleEditTodo);
     const handleCrossIcon = () => {
