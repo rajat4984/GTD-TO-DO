@@ -1,4 +1,5 @@
 import { deleteTodo } from "./deleteTodo";
+
 function insertNewTodo(arr) {
   const todoList = document.querySelector(".todo-list");
   const el = arr[arr.length - 1];
@@ -19,6 +20,7 @@ function insertNewTodo(arr) {
 
   const deleteTodoIcon = document.querySelectorAll(".todo-icons > .bi-trash");
   deleteTodo(deleteTodoIcon, arr);
+
 }
 
 export { insertNewTodo };

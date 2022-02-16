@@ -12,9 +12,7 @@ showTodayTodo(todayArray);
 
 const newTodoBtn = document.querySelector(".new-todo-btn");
 const projectNameText = document.querySelectorAll(".project-name-text");
-// const deleteTodoIcon = document.querySelectorAll(".todo-icons > .bi-trash");
 
-// deleteTodo(deleteTodoIcon,todayArray) 
 
 // ---------------------HANDLER FUNCTIONS---------------------------------
 

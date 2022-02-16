@@ -1,5 +1,5 @@
 import { deleteTodo } from "./deleteTodo";
-
+import { showEditModal } from "./ShowEditModal";
 function showTodayTodo(arr){
     for (let i = 0; i < arr.length; i++) {
         const todoList = document.querySelector(".todo-list");
@@ -20,7 +20,9 @@ function showTodayTodo(arr){
     }
 
     const deleteTodoIcon = document.querySelectorAll(".todo-icons > .bi-trash")
+    const editTodoIcon = document.querySelectorAll(".todo-icons > .bi-pencil")
     deleteTodo(deleteTodoIcon,arr)
+    showEditModal(editTodoIcon,arr)
 }
 
 export {showTodayTodo}
