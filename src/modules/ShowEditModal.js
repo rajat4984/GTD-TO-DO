@@ -1,3 +1,5 @@
+import { format } from "date-fns";
+
 function showEditModal(arr) {
   const editTodoIcon = document.querySelectorAll(".todo-icons > .bi-pencil");
   const editModal = document.querySelector(".edit-modal-content");
@@ -9,6 +11,9 @@ function showEditModal(arr) {
   const titleLabel = document.querySelectorAll(".todo-label");
   const descLabel = document.querySelectorAll(".todo-desc");
   const dueDateLabel = document.querySelectorAll(".todo-due-date");
+
+  let newDate = format(new Date(), "yyyy-MM-dd");
+  editModalDateInput.setAttribute("min", newDate);
 
   const handleEditIcon = (e) => {
     editModal.style.display = "flex";
