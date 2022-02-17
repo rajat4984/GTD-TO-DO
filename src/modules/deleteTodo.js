@@ -1,4 +1,5 @@
-function deleteTodo(deleteTodoIcon,arr) {
+function deleteTodo(arr) {
+  const deleteTodoIcon = document.querySelectorAll(".todo-icons > .bi-trash");
   const handleDeleteIcon = (e) => {
     let elementId =
       e.target.parentNode.previousElementSibling.children[0].children[0].getAttribute(

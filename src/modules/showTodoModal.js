@@ -1,19 +1,33 @@
 import { makeTodo } from "./MakeTodo";
 import { insertNewTodo } from "./insertNewTodo";
+import { format } from "date-fns";
 function showTodoModal(arr) {
   const modalContent = document.querySelector(".modal-content");
   const modalTitleInput = document.querySelector(".modal-title-input");
   const modalDescInput = document.querySelector(".modal-desc-input");
   const modalAddTodoBtn = document.querySelector(".modal-todo-btn > button");
   const modalCrossIcon = document.querySelector(".modal-cross-icon");
+  const modalDateInput = document.querySelector(".modal-date-input");
+  
   modalContent.style.display = "flex";
-
+  let newDate = format(new Date(), "yyyy-MM-dd");
+  modalDateInput.setAttribute("min", newDate);
   const handleAddTodo = () => {
-    let newTodo = new makeTodo(modalTitleInput.value, modalDescInput.value);
+    if (modalTitleInput.value === "") return;
+    if (modalDateInput.value === "") {
+      console.log(newDate);
+      modalDateInput.value = newDate;
+    }
+    let newTodo = new makeTodo(
+      modalTitleInput.value,
+      modalDescInput.value,
+      modalDateInput.value
+    );
     arr.push(newTodo);
     insertNewTodo(arr);
     modalTitleInput.value = "";
     modalDescInput.value = "";
+    modalDateInput.value = "";
   };
 
   const handleCrossIcon = () => {

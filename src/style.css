@@ -25,6 +25,10 @@ a {
   color: var(--myWhite);
 }
 
+i {
+  padding: 0;
+}
+
 /* -----------------------------SCROLL-BAR--------------------------------- */
 /* width */
 ::-webkit-scrollbar {
@@ -108,12 +112,6 @@ a {
   border-width: thin;
 }
 
-.todo-heading-date {
-  font-size: 0.7rem;
-  font-weight: lighter;
-  color: var(--myLightGrey);
-}
-
 /* -----------------------------------PROJECT-SECTION--------------------------------------- */
 .project-section,
 .todo-section {
@@ -157,7 +155,7 @@ a {
   padding: 2em 0 1em 0;
 }
 
-.new-project-btn{
+.new-project-btn {
   padding: 0;
 }
 
@@ -176,12 +174,29 @@ a {
 }
 
 /* -----------------------------------------TODO-SECTION--------------------------- */
+.todo-header {
+  display: flex;
+  border-bottom: 1px solid rgb(107, 106, 106);
+}
+
+.todo-heading {
+  border: 0;
+}
+
+.todo-heading-date {
+  text-align: center;
+  margin: 1.5em 0 0 1em;
+  font-size: 0.7rem;
+  font-weight: lighter;
+  color: var(--myLightGrey);
+}
+
 .todo-list {
   padding: 2em;
 }
 
 .todo-item {
-  padding: 1.5em 0 0.9em 0;
+  padding: 1.5em 0 2em 0;
   border-bottom: 1px solid rgb(107, 106, 106);
   border-width: thin;
   display: flex;
@@ -195,6 +210,7 @@ a {
   font-size: 1rem;
   padding-bottom: 0.2em;
   position: relative;
+  display: flex;
 }
 
 input[type="checkbox"] {
@@ -232,6 +248,16 @@ input[type="checkbox"]:checked + .todo-label::before {
   transform: scale(1) rotateZ(0deg);
 }
 
+.todo-due-date {
+  background-color: var(--myGreen);
+  color: var(--myBlack);
+  font-weight: bolder;
+  font-size: 0.7rem;
+  padding: 0.2em;
+  border-radius: 4px;
+  margin: 0 0 0 1em;
+}
+
 .todo-desc {
   font-size: 0.8rem;
   font-weight: lighter;
@@ -239,7 +265,6 @@ input[type="checkbox"]:checked + .todo-label::before {
 }
 
 .todo-icon-item {
-  /* display: none; */
   padding: 0 0.3em;
   cursor: pointer;
 }
@@ -253,7 +278,9 @@ input[type="checkbox"]:checked + .todo-label::before {
   border-radius: 5px;
 }
 
-.new-todo-btn,.modal-todo-btn>button,.edit-modal-todo-btn > button{
+.new-todo-btn,
+.modal-todo-btn > button,
+.edit-modal-todo-btn > button {
   background-color: var(--myGreen);
   color: var(--myWhite);
   font-size: 1rem;
@@ -268,7 +295,9 @@ input[type="checkbox"]:checked + .todo-label::before {
   border: 1px solid var(--myLightBlack);
 }
 
-.new-todo-btn:hover,.modal-todo-btn>button:hover,.edit-modal-todo-btn > button:hover {
+.new-todo-btn:hover,
+.modal-todo-btn > button:hover,
+.edit-modal-todo-btn > button:hover {
   background-color: var(--myLightBlack);
   border: 1px solid var(--myGreen);
   color: var(--myGreen);
@@ -286,43 +315,48 @@ input[type="checkbox"]:checked + .todo-label::before {
 
 /* -------------------------ADD NEW TODO MODAL----------------------------------------- */
 
-.modal-content,.edit-modal-content {
+.modal-content,
+.edit-modal-content {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background-color: rgba(0,0,0,0.5);
+  background-color: rgba(0, 0, 0, 0.5);
   display: none;
   justify-content: center;
   align-items: center;
 }
 
-.modal,.edit-modal {
+.modal,
+.edit-modal {
   background-color: var(--myGrey);
   width: 20%;
   height: 50%;
-  padding: 1em;
+  padding: .5em 1em 2em 1em;
   border-radius: 10px;
 }
 
-.modal-heading,.edit-modal-heading{
-  border-bottom: 1px solid var(--myWhite);
-  padding-bottom: 1em;
-}
-
-.modal-todo-info,.edit-modal-todo-info{
+.modal-todo-info,
+.edit-modal-todo-info {
   display: flex;
   justify-content: space-evenly;
   flex-direction: column;
-} 
+}
 
-.modal-todo-info >label,i,.edit-modal-todo-info >label,i{
+.modal-todo-info > label,
+.edit-modal-todo-info > label
+{
   padding: 1em 0;
 }
 
-.modal-desc-input,.modal-title-input,.edit-modal-desc-input,.edit-modal-title-input{
-  padding: .5em;
+.modal-desc-input,
+.modal-title-input,
+.modal-date-input,
+.edit-modal-desc-input,
+.edit-modal-title-input,
+.edit-modal-date-input{
+  padding: 0.5em;
   width: 80%;
   background-color: var(--myGrey);
   border: 1px solid var(--myGreen);
@@ -332,18 +366,14 @@ input[type="checkbox"]:checked + .todo-label::before {
   font-size: 1rem;
 }
 
-
-.modal-cross-icon:hover,.edit-cross-icon:hover{
+.modal-cross-icon:hover,
+.edit-cross-icon:hover {
   opacity: 1;
 }
 
-.modal-todo-btn > button,.edit-modal-todo-btn > button{
+.modal-todo-btn > button,
+.edit-modal-todo-btn > button {
+  margin-top: 1em;
   width: 30%;
 }
-
-.modal-date-icon,.edit-modal-date-icon{
-  cursor: pointer;
-}
-
-
 

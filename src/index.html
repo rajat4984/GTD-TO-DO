@@ -40,7 +40,7 @@
               <span class="bullet-points"
                 ><i class="bi bi-brightness-high-fill"></i
               ></span>
-              Today
+              <span class="project-name-text"> Today</span>
             </p>
             <p class="project-name">
               <span class="bullet-points">&#9679;</span>
@@ -66,9 +66,10 @@
 
       <div class="todo-section">
         <div class="todo-sub-section">
-          <h2 class="todo-heading">
-            Today <span class="todo-heading-date">Fri 11 Feb</span>
-          </h2>
+          <div class="todo-header">
+            <h2 class="todo-heading">Today</h2>
+            <span class="todo-heading-date">Fri 11 Feb</span>
+          </div>
           <div class="todo-list"></div>
           <div class="new-todo-btn-container">
             <button class="new-todo-btn">
@@ -96,11 +97,12 @@
       <div class="modal">
         <i class="bi bi-x-lg modal-cross-icon"></i>
         <div class="modal-todo-info">
-          <label for="title" class="modal-title-label">Title</label>
+          <label for="title" class="modal-title-label">Title *</label>
           <input type="text" class="modal-title-input" />
-          <label for="title" class="modal-desc-label">Description</label>
+          <label for="desc" class="modal-desc-label">Description</label>
           <input type="text" class="modal-desc-input" />
-          <i class="bi bi-calendar-check modal-date-icon"></i>
+          <label for="date" class="modal-date-label">Due Date</label>
+          <input type="date" class="modal-date-input" />
         </div>
         <div class="modal-todo-btn"><button>Add</button></div>
       </div>
@@ -111,11 +113,12 @@
       <div class="edit-modal">
         <i class="bi bi-x-lg edit-modal-cross-icon"></i>
         <div class="edit-modal-todo-info">
-          <label for="title" class="edit-modal-title-label">Title</label>
+          <label for="title" class="edit-modal-title-label">Title *</label>
           <input type="text" class="edit-modal-title-input" />
           <label for="title" class="edit-modal-desc-label">Description</label>
           <input type="text" class="edit-modal-desc-input" />
-          <i class="bi bi-calendar-check edit-modal-date-icon"></i>
+          <label for="date" class="edit-modal-date-label">Due Date</label>
+          <input type="date" class="edit-modal-date-input" />
         </div>
         <div class="edit-modal-todo-btn"><button>Edit</button></div>
       </div>
