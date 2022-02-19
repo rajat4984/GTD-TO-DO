@@ -20,6 +20,7 @@ function showTodoModal(arr) {
     let newTodo = new makeTodo(
       modalTitleInput.value,
       modalDescInput.value,
+      arr.length,                     //to make different ids of todos in different projects
       modalDateInput.value
     );
     arr.push(newTodo);
