@@ -1,17 +1,20 @@
 function deleteTodo(arr) {
   const deleteTodoIcon = document.querySelectorAll(".todo-icons > .bi-trash");
   const titleLabel = document.querySelectorAll(".todo-title");
-
   const handleDeleteIcon = (e) => {
-    let elementId =
-      e.target.parentNode.previousElementSibling.children[0].children[0].getAttribute("id");
-    arr.splice(elementId);
-    e.target.parentNode.previousElementSibling.parentNode.remove();
+    const todoList = document.querySelector(".todo-list");
+    let element = e.target.parentNode.previousElementSibling.parentNode;
+    let elementId = Array.from(todoList.children).indexOf(element);
+
+    arr.splice(elementId, 1);
+    element.remove();
   };
 
   const handleCheck = (e) => {
-    let element = e.target.parentNode.parentNode.parentNode; //gives id of clicked todo
-    arr.splice(element);
+    const todoList = document.querySelector(".todo-list");
+    let element = e.target.parentNode.parentNode.parentNode;
+    let elementId = Array.from(todoList.children).indexOf(element);
+    arr.splice(elementId,1);
     element.remove();
   };
 

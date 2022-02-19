@@ -25,6 +25,7 @@ function showTodoModal(arr) {
     );
     arr.push(newTodo);
     insertNewTodo(arr);
+    console.log(newTodo)
     modalTitleInput.value = "";
     modalDescInput.value = "";
     modalDateInput.value = "";
