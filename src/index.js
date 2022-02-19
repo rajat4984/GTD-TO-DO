@@ -17,6 +17,7 @@ const todoHeading = document.querySelector(".todo-heading");
 const projectNameText = document.querySelectorAll(".project-name-text");
 const headingDate = document.querySelector(".todo-heading-date");
 const projectNameBtn = document.querySelectorAll(".project-name-btn");
+const projectList = document.querySelector(".project-list");
 
 today.addInArray(projectsArray);
 personal.addInArray(projectsArray);
@@ -33,12 +34,10 @@ showEditModal(currentArray);
 // ---------------------HANDLER FUNCTIONS---------------------------------
 
 const handleProjectName = (e) => {
-  console.log(e.target.textContent)
-  let elementId = e.target.parentNode.getAttribute("id");
-  console.log(elementId)
+  let element = e.target.parentNode
+  let elementId = Array.from(projectList.children).indexOf(element)
   todoHeading.innerText = projectsArray[elementId].name;
   currentArray = projectsArray[elementId].array;
-  console.log(currentArray);
   populateNewArray(currentArray);
   headingDate.innerText = format(new Date(), "dd/MM/yyyy");
 
@@ -54,11 +53,12 @@ const handleNewProject = () => {
   showProjectModal(projectsArray);
 };
 
-const hanldeProjectNameBtn = (e) =>{
-  let elementId = e.target.parentNode.getAttribute("id")
-  projectsArray.pop(elementId)
-  e.target.parentNode.remove()
-}
+const hanldeProjectNameBtn = (e) => {
+  let element = e.target.parentNode;
+  let elementId = Array.from(projectList.children).indexOf(element);
+  projectsArray.splice(elementId,1);
+  element.remove();
+};
 
 // --------------------------------EVENT LISTENERS----------------------------------
 
@@ -67,8 +67,8 @@ newProjectIcon.addEventListener("click", handleNewProject);
 projectNameText.forEach((item) => {
   item.addEventListener("click", handleProjectName.bind(item));
 });
-projectNameBtn.forEach((icon)=>{
-  icon.addEventListener("click",hanldeProjectNameBtn.bind(icon))
-})
+projectNameBtn.forEach((icon) => {
+  icon.addEventListener("click", hanldeProjectNameBtn.bind(icon));
+});
 
-export { handleProjectName,hanldeProjectNameBtn };
+export { handleProjectName, hanldeProjectNameBtn };
