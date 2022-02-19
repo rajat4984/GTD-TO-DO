@@ -1,19 +1,13 @@
-
 class makeTodo {
-
   static myId = 0;
 
-  constructor(title, desc = "",dueDate=newDate) {
-    makeTodo.myId += 1;
+  constructor(title, desc = "", dueDate = newDate) {
     this.title = title;
     this.desc = desc;
     this.id = makeTodo.myId;
-    this.dueDate = dueDate
+    this.dueDate = dueDate;
+    makeTodo.myId += 1;
   }
-
-  static makeTodo = 0
-
 }
-
 
 export { makeTodo };

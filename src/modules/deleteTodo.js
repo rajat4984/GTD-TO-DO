@@ -3,10 +3,10 @@ function deleteTodo(arr) {
   const titleLabel = document.querySelectorAll(".todo-title");
 
   const handleDeleteIcon = (e) => {
-    let element =
-      e.target.parentNode.previousElementSibling.children[0].children[0];
-    arr.splice(element);
-    element.remove();
+    let elementId =
+      e.target.parentNode.previousElementSibling.children[0].children[0].getAttribute("id");
+    arr.splice(elementId);
+    e.target.parentNode.previousElementSibling.parentNode.remove();
   };
 
   const handleCheck = (e) => {

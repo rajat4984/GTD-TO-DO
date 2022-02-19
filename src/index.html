@@ -36,24 +36,18 @@
             Projects <i class="bi bi-plus new-project-btn"></i>
           </h2>
           <div class="project-list">
-            <p class="project-name">
+            <p id="0" class="project-name">
               <span class="bullet-points"
                 ><i class="bi bi-brightness-high-fill"></i
               ></span>
               <span class="project-name-text"> Today</span>
             </p>
-            <p class="project-name">
-              <span class="bullet-points">&#9679;</span>
-              <span class="project-name-text"> Excersise </span>
-              <i class="bi bi-pencil project-name-btn"></i>
-            </p>
-
-            <p class="project-name">
+            <p id="1" class="project-name">
               <span class="bullet-points">&#9679;</span>
               <span class="project-name-text"> Personal </span>
               <i class="bi bi-pencil project-name-btn"></i>
             </p>
-            <p class="project-name">
+            <p id="2" class="project-name">
               <span class="bullet-points">&#9679;</span>
               <span class="project-name-text"> Study </span>
               <i class="bi bi-pencil project-name-btn"></i>
@@ -67,7 +61,7 @@
       <div class="todo-section">
         <div class="todo-sub-section">
           <div class="todo-header">
-            <h2 class="todo-heading">Today</h2>
+            <h2 class="todo-heading">today</h2>
             <span class="todo-heading-date">Fri 11 Feb</span>
           </div>
           <div class="todo-list"></div>
@@ -121,6 +115,16 @@
           <input type="date" class="edit-modal-date-input"/>
         </div>
         <div class="edit-modal-todo-btn"><button>Edit</button></div>
+      </div>
+    </div>
+
+    <!-- ------------------------------------------INSERT PROJECT MODAL--------------------------------- -->
+    <div class="project-modal-content">
+      <div class="project-modal">
+        <i class="bi bi-x-lg project-modal-cross-icon"></i>
+        <label class="project-modal-label">Title *</label>
+        <input type="text" class="project-modal-title-input" />
+        <div class="project-modal-add-btn"><button>Edit</button></div>
       </div>
     </div>
   </body>

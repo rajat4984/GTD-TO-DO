@@ -15,7 +15,6 @@ function showTodoModal(arr) {
   const handleAddTodo = () => {
     if (modalTitleInput.value === "") return;
     if (modalDateInput.value === "") {
-      console.log(newDate);
       modalDateInput.value = newDate;
     }
     let newTodo = new makeTodo(

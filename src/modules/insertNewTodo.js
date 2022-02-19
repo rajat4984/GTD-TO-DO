@@ -6,8 +6,8 @@ function insertNewTodo(arr) {
   todoList.innerHTML += ` <div class="todo-item">
       <div class="todo-info">
         <div class="todo-title">
-          <input class="todo-checkbox" type="checkbox" id=${arr.length - 1} />
-          <label class="todo-label" for=${arr.length - 1}> ${el.title}</label>
+          <input class="todo-checkbox" type="checkbox" id=${el.id} />
+          <label class="todo-label" for=${el.id}> ${el.title}</label>
           <div class="todo-due-date">${el.dueDate}</div>
         </div>
         <div class="todo-desc">${el.desc}</div>

@@ -133,10 +133,6 @@ i {
   border-radius: 5px;
 }
 
-.project-name:nth-child(2n + 3) > span {
-  color: var(--myGreen);
-}
-
 .project-name-btn {
   display: none;
 }
@@ -162,7 +158,7 @@ i {
 .new-project-btn,
 .project-name-btn,                                /*Icons*/
 .modal-cross-icon,
-.edit-modal-cross-icon {
+.edit-modal-cross-icon,.project-modal-cross-icon {
   opacity: 0.5;
   transition: 0.2s;
   cursor: pointer;
@@ -280,7 +276,8 @@ input[type="checkbox"]:checked + .todo-label::before {
 
 .new-todo-btn,
 .modal-todo-btn > button,
-.edit-modal-todo-btn > button {
+.edit-modal-todo-btn > button,
+.project-modal-add-btn > button {
   background-color: var(--myGreen);
   color: var(--myWhite);
   font-size: 1rem;
@@ -297,7 +294,8 @@ input[type="checkbox"]:checked + .todo-label::before {
 
 .new-todo-btn:hover,
 .modal-todo-btn > button:hover,
-.edit-modal-todo-btn > button:hover {
+.edit-modal-todo-btn > button:hover,
+.project-modal-add-btn > button:hover  {
   background-color: var(--myLightBlack);
   border: 1px solid var(--myGreen);
   color: var(--myGreen);
@@ -316,7 +314,8 @@ input[type="checkbox"]:checked + .todo-label::before {
 /* -------------------------ADD NEW TODO MODAL----------------------------------------- */
 
 .modal-content,
-.edit-modal-content {
+.edit-modal-content,
+.project-modal-content {
   position: fixed;
   top: 0;
   left: 0;
@@ -329,11 +328,12 @@ input[type="checkbox"]:checked + .todo-label::before {
 }
 
 .modal,
-.edit-modal {
+.edit-modal,
+.project-modal {
   background-color: var(--myGrey);
   width: 20%;
   height: 50%;
-  padding: .5em 1em 2em 1em;
+  padding: 0.5em 1em 2em 1em;
   border-radius: 10px;
 }
 
@@ -345,8 +345,7 @@ input[type="checkbox"]:checked + .todo-label::before {
 }
 
 .modal-todo-info > label,
-.edit-modal-todo-info > label
-{
+.edit-modal-todo-info > label ,.project-modal-label > label {
   padding: 1em 0;
 }
 
@@ -355,7 +354,8 @@ input[type="checkbox"]:checked + .todo-label::before {
 .modal-date-input,
 .edit-modal-desc-input,
 .edit-modal-title-input,
-.edit-modal-date-input{
+.edit-modal-date-input,
+.project-modal-title-input {
   padding: 0.5em;
   width: 80%;
   background-color: var(--myGrey);
@@ -367,13 +367,20 @@ input[type="checkbox"]:checked + .todo-label::before {
 }
 
 .modal-cross-icon:hover,
-.edit-cross-icon:hover {
+.edit-cross-icon:hover,
+.project-modal-cross-icon:hover {
   opacity: 1;
 }
 
 .modal-todo-btn > button,
-.edit-modal-todo-btn > button {
+.edit-modal-todo-btn > button,
+.project-modal-add-btn > button {
   margin-top: 1em;
   width: 30%;
 }
 
+
+.project-modal{
+  padding: 1em;
+  height: 20vh;
+}

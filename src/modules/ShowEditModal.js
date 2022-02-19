@@ -27,6 +27,7 @@ function showEditModal(arr) {
 
     const handleEditTodo = () => {
       editModal.style.display = "none";
+      console.log("helloo")
       arr[elementId].title = editModalTitleInput.value;
       arr[elementId].desc = editModalDescInput.value;
       arr[elementId].dueDate = editModalDateInput.value;
