@@ -7,6 +7,8 @@ import { project } from "./modules/makeProject";
 import { populateNewArray } from "./modules/populateNewArray";
 import { format } from "date-fns";
 
+localStorage.clear();
+
 const newTodoBtn = document.querySelector(".new-todo-btn");
 const newProjectIcon = document.querySelector(".new-project-btn");
 const projectsArray = [];
@@ -23,30 +25,34 @@ today.addInArray(projectsArray);
 personal.addInArray(projectsArray);
 study.addInArray(projectsArray);
 
-let currentArray = today.array;
+localStorage.setItem(today.name, JSON.stringify(today.array));
+localStorage.setItem(personal.name, JSON.stringify(personal.array));
+localStorage.setItem(study.name, JSON.stringify(study.array));
+
+let currentProject = today;
 headingDate.textContent = format(new Date(), "dd/MM/yyyy");
 
 // -------------------------------NORMAL FUNCTIONS------------------------------
 
-deleteTodo(currentArray);
-showEditModal(currentArray);
+deleteTodo(currentProject);
+showEditModal(currentProject);
 
 // ---------------------HANDLER FUNCTIONS---------------------------------
 
 const handleProjectName = (e) => {
-  let element = e.target.parentNode
-  let elementId = Array.from(projectList.children).indexOf(element)
+  let element = e.target.parentNode;
+  let elementId = Array.from(projectList.children).indexOf(element);
   todoHeading.innerText = projectsArray[elementId].name;
-  currentArray = projectsArray[elementId].array;
-  populateNewArray(currentArray);
+  currentProject = projectsArray[elementId];
+  populateNewArray(currentProject);
   headingDate.innerText = format(new Date(), "dd/MM/yyyy");
 
-  deleteTodo(currentArray);
-  showEditModal(currentArray);
+  deleteTodo(currentProject);
+  showEditModal(currentProject);
 };
 
 const handleMakeTodo = () => {
-  showTodoModal(currentArray);
+  showTodoModal(currentProject);
 };
 
 const handleNewProject = () => {
@@ -56,7 +62,7 @@ const handleNewProject = () => {
 const hanldeProjectNameBtn = (e) => {
   let element = e.target.parentNode;
   let elementId = Array.from(projectList.children).indexOf(element);
-  projectsArray.splice(elementId,1);
+  projectsArray.splice(elementId, 1);
   element.remove();
 };
 

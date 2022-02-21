@@ -1,5 +1,6 @@
-function populateNewArray(currentArray) {
-  // console.log(currentArray)
+function populateNewArray(currentProject){
+  let currentArray = currentProject.array
+  
   const todoList = document.querySelector(".todo-list");
   todoList.innerHTML = "";
   if (currentArray.length === 0) {

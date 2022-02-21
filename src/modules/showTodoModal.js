@@ -1,7 +1,8 @@
 import { makeTodo } from "./MakeTodo";
 import { insertNewTodo } from "./insertNewTodo";
 import { format } from "date-fns";
-function showTodoModal(arr) {
+function showTodoModal(currentProject) {
+  let currentArray = currentProject.array
   const modalContent = document.querySelector(".modal-content");
   const modalTitleInput = document.querySelector(".modal-title-input");
   const modalDescInput = document.querySelector(".modal-desc-input");
@@ -20,12 +21,11 @@ function showTodoModal(arr) {
     let newTodo = new makeTodo(
       modalTitleInput.value,
       modalDescInput.value,
-      arr.length,                     //to make different ids of todos in different projects
+      currentArray.length,                     //to make different ids of todos in different projects
       modalDateInput.value
     );
-    arr.push(newTodo);
-    insertNewTodo(arr);
-    console.log(newTodo)
+    currentArray.push(newTodo);
+    insertNewTodo(currentProject);
     modalTitleInput.value = "";
     modalDescInput.value = "";
     modalDateInput.value = "";

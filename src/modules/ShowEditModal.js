@@ -1,6 +1,7 @@
 import { format } from "date-fns";
 
-function showEditModal(arr) {
+function showEditModal(currentProject) {
+  let currentArray = currentProject.array
   const editTodoIcon = document.querySelectorAll(".todo-icons > .bi-pencil");
   const handleEditIcon = (e) => {
     const editModal = document.querySelector(".edit-modal-content");
@@ -22,19 +23,20 @@ function showEditModal(arr) {
     let element = e.target.parentNode.previousElementSibling.parentNode;
     let elementId = Array.from(todoList.children).indexOf(element);
 
-    editModalTitleInput.value = arr[elementId].title;
-    editModalDescInput.value = arr[elementId].desc;
-    editModalDateInput.value = arr[elementId].dueDate;
+    console.log(currentArray)
+    editModalTitleInput.value = currentArray[elementId].title;
+    editModalDescInput.value = currentArray[elementId].desc;
+    editModalDateInput.value = currentArray[elementId].dueDate;
 
     const handleEditTodo = () => {
       editModal.style.display = "none";
-      arr[elementId].title = editModalTitleInput.value;
-      arr[elementId].desc = editModalDescInput.value;
-      arr[elementId].dueDate = editModalDateInput.value;
+      currentArray[elementId].title = editModalTitleInput.value;
+      currentArray[elementId].desc = editModalDescInput.value;
+      currentArray[elementId].dueDate = editModalDateInput.value;
 
-      titleLabel[elementId].textContent = arr[elementId].title;
-      descLabel[elementId].textContent = arr[elementId].desc;
-      dueDateLabel[elementId].textContent = arr[elementId].dueDate;
+      titleLabel[elementId].textContent = currentArray[elementId].title;
+      descLabel[elementId].textContent = currentArray[elementId].desc;
+      dueDateLabel[elementId].textContent = currentArray[elementId].dueDate;
 
       editTodoBtn.removeEventListener("click", handleEditTodo);
     };

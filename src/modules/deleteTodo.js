@@ -1,4 +1,5 @@
-function deleteTodo(arr) {
+function deleteTodo(currentProject) {
+  let currentArray = currentProject.array;
   const deleteTodoIcon = document.querySelectorAll(".todo-icons > .bi-trash");
   const titleLabel = document.querySelectorAll(".todo-title");
   const handleDeleteIcon = (e) => {
@@ -6,7 +7,7 @@ function deleteTodo(arr) {
     let element = e.target.parentNode.previousElementSibling.parentNode;
     let elementId = Array.from(todoList.children).indexOf(element);
 
-    arr.splice(elementId, 1);
+    currentArray.splice(elementId, 1);
     element.remove();
   };
 
@@ -14,7 +15,7 @@ function deleteTodo(arr) {
     const todoList = document.querySelector(".todo-list");
     let element = e.target.parentNode.parentNode.parentNode;
     let elementId = Array.from(todoList.children).indexOf(element);
-    arr.splice(elementId,1);
+    currentArray.splice(elementId, 1);
     element.remove();
   };
 

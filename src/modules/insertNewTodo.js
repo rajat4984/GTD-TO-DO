@@ -1,8 +1,9 @@
 import { deleteTodo } from "./deleteTodo";
 import { showEditModal } from "./ShowEditModal";
-function insertNewTodo(arr) {
+function insertNewTodo(currentProject) {
+  let currentArray = currentProject.array 
   const todoList = document.querySelector(".todo-list");
-  const el = arr[arr.length - 1];
+  const el = currentArray[currentArray.length - 1];
   todoList.innerHTML += ` <div class="todo-item">
       <div class="todo-info">
         <div class="todo-title">
@@ -18,8 +19,8 @@ function insertNewTodo(arr) {
       </div>
     </div>`;
 
-  deleteTodo(arr);
-  showEditModal(arr);
+  deleteTodo(currentProject);
+  showEditModal(currentProject);
 
 }
 
