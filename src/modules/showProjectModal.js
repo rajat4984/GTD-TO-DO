@@ -16,7 +16,8 @@ function showProjectModal(projectsArray) {
     projectModalContent.style.display = "none";
     let newProject = new project(projectTitleInput.value);
     newProject.addInArray(projectsArray);
-    insertNewProject(newProject);
+    localStorage.setItem(newProject.name,JSON.stringify(newProject.array))
+    insertNewProject(projectsArray, newProject);
     projectTitleInput.value = "";
     addProjectBtn.removeEventListener("click", handleAddBtn);
   };

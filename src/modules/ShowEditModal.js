@@ -23,7 +23,7 @@ function showEditModal(currentProject) {
     let element = e.target.parentNode.previousElementSibling.parentNode;
     let elementId = Array.from(todoList.children).indexOf(element);
 
-    console.log(currentArray)
+
     editModalTitleInput.value = currentArray[elementId].title;
     editModalDescInput.value = currentArray[elementId].desc;
     editModalDateInput.value = currentArray[elementId].dueDate;
@@ -37,6 +37,8 @@ function showEditModal(currentProject) {
       titleLabel[elementId].textContent = currentArray[elementId].title;
       descLabel[elementId].textContent = currentArray[elementId].desc;
       dueDateLabel[elementId].textContent = currentArray[elementId].dueDate;
+
+      localStorage[currentProject.name] = JSON.stringify(currentArray);
 
       editTodoBtn.removeEventListener("click", handleEditTodo);
     };

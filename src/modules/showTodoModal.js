@@ -1,15 +1,18 @@
 import { makeTodo } from "./MakeTodo";
-import { insertNewTodo } from "./insertNewTodo";
+import { populateTodo } from "./populateTodo";
 import { format } from "date-fns";
 function showTodoModal(currentProject) {
+  let retrievedData = localStorage.getItem(currentProject.name);
+  currentProject.array = JSON.parse(retrievedData);
   let currentArray = currentProject.array
+  
   const modalContent = document.querySelector(".modal-content");
   const modalTitleInput = document.querySelector(".modal-title-input");
   const modalDescInput = document.querySelector(".modal-desc-input");
   const modalAddTodoBtn = document.querySelector(".modal-todo-btn > button");
   const modalCrossIcon = document.querySelector(".modal-cross-icon");
   const modalDateInput = document.querySelector(".modal-date-input");
-  
+
   modalContent.style.display = "flex";
   let newDate = format(new Date(), "yyyy-MM-dd");
   modalDateInput.setAttribute("min", newDate);
@@ -21,11 +24,16 @@ function showTodoModal(currentProject) {
     let newTodo = new makeTodo(
       modalTitleInput.value,
       modalDescInput.value,
-      currentArray.length,                     //to make different ids of todos in different projects
+      currentArray.length, //to make different ids of todos in different projects
       modalDateInput.value
     );
     currentArray.push(newTodo);
-    insertNewTodo(currentProject);
+    console.log(currentArray)
+    populateTodo(currentProject);
+
+    localStorage[currentProject.name] = JSON.stringify(currentArray);
+
+
     modalTitleInput.value = "";
     modalDescInput.value = "";
     modalDateInput.value = "";

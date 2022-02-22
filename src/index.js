@@ -4,17 +4,15 @@ import { deleteTodo } from "./modules/deleteTodo";
 import { showEditModal } from "./modules/ShowEditModal";
 import { showProjectModal } from "./modules/showProjectModal";
 import { project } from "./modules/makeProject";
-import { populateNewArray } from "./modules/populateNewArray";
 import { format } from "date-fns";
+import { populateTodo } from "./modules/populateTodo";
 
-localStorage.clear();
+// localStorage.clear()
 
 const newTodoBtn = document.querySelector(".new-todo-btn");
 const newProjectIcon = document.querySelector(".new-project-btn");
 const projectsArray = [];
 const today = new project("Today");
-const personal = new project("Personal");
-const study = new project("Study");
 const todoHeading = document.querySelector(".todo-heading");
 const projectNameText = document.querySelectorAll(".project-name-text");
 const headingDate = document.querySelector(".todo-heading-date");
@@ -22,18 +20,20 @@ const projectNameBtn = document.querySelectorAll(".project-name-btn");
 const projectList = document.querySelector(".project-list");
 
 today.addInArray(projectsArray);
-personal.addInArray(projectsArray);
-study.addInArray(projectsArray);
 
-localStorage.setItem(today.name, JSON.stringify(today.array));
-localStorage.setItem(personal.name, JSON.stringify(personal.array));
-localStorage.setItem(study.name, JSON.stringify(study.array));
+if (!localStorage.getItem("Today")) {
+  localStorage.setItem(today.name, JSON.stringify(today.array));
+}
 
 let currentProject = today;
+let retrievedData = localStorage.getItem(currentProject.name);
+currentProject.array = JSON.parse(retrievedData);
+
 headingDate.textContent = format(new Date(), "dd/MM/yyyy");
 
-// -------------------------------NORMAL FUNCTIONS------------------------------
+populateTodo(currentProject);
 
+// -------------------------------NORMAL FUNCTIONS------------------------------
 deleteTodo(currentProject);
 showEditModal(currentProject);
 
@@ -44,11 +44,13 @@ const handleProjectName = (e) => {
   let elementId = Array.from(projectList.children).indexOf(element);
   todoHeading.innerText = projectsArray[elementId].name;
   currentProject = projectsArray[elementId];
-  populateNewArray(currentProject);
+  currentProject.array = JSON.parse(localStorage.getItem(currentProject.name));
+  populateTodo(currentProject);
   headingDate.innerText = format(new Date(), "dd/MM/yyyy");
 
   deleteTodo(currentProject);
   showEditModal(currentProject);
+  populateTodo(currentProject);
 };
 
 const handleMakeTodo = () => {

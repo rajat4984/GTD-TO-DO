@@ -6,9 +6,9 @@ function deleteTodo(currentProject) {
     const todoList = document.querySelector(".todo-list");
     let element = e.target.parentNode.previousElementSibling.parentNode;
     let elementId = Array.from(todoList.children).indexOf(element);
-
     currentArray.splice(elementId, 1);
     element.remove();
+    localStorage[currentProject.name] = JSON.stringify(currentArray);
   };
 
   const handleCheck = (e) => {
@@ -17,6 +17,7 @@ function deleteTodo(currentProject) {
     let elementId = Array.from(todoList.children).indexOf(element);
     currentArray.splice(elementId, 1);
     element.remove();
+    localStorage[currentProject.name] = JSON.stringify(currentArray);
   };
 
   deleteTodoIcon.forEach((item) => {
