@@ -1,5 +1,5 @@
-import { insertNewProject } from "./insertNewProject";
 import { project } from "./makeProject";
+import { populateProjects } from "./populateProjects";
 
 function showProjectModal(projectsArray) {
   const projectModalContent = document.querySelector(".project-modal-content");
@@ -14,10 +14,11 @@ function showProjectModal(projectsArray) {
   const handleAddBtn = () => {
     if (projectTitleInput.value === "") return;
     projectModalContent.style.display = "none";
-    let newProject = new project(projectTitleInput.value);
+    const newProject = new project(projectTitleInput.value,projectsArray.length);
     newProject.addInArray(projectsArray);
-    localStorage.setItem(newProject.name,JSON.stringify(newProject.array))
-    insertNewProject(projectsArray, newProject);
+    localStorage.setItem("projectsArray", JSON.stringify(projectsArray));
+    localStorage.setItem(newProject.name ,JSON.stringify(newProject.array));
+    populateProjects(projectsArray)
     projectTitleInput.value = "";
     addProjectBtn.removeEventListener("click", handleAddBtn);
   };

@@ -1,10 +1,9 @@
 class project {
-  constructor(name) {
+  constructor(name,projectId) {
     this.name = name;
     this.array = [];
-    this.projectId = project.projectId++
+    this.projectId = projectId
   }
-  static projectId = 0
   addInArray(projectsArray){
       projectsArray.push(this)
   }

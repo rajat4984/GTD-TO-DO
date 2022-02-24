@@ -1,9 +1,7 @@
 import { deleteTodo } from "./deleteTodo";
 import { showEditModal } from "./ShowEditModal";
 function populateTodo(currentProject) {
-  console.log("hello")
   let currentArray = currentProject.array;
-  console.log(currentArray)
   const todoList = document.querySelector(".todo-list");
   todoList.innerHTML = ""
   for (let i = 0; i < currentArray.length; i++) {

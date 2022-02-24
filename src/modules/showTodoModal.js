@@ -24,13 +24,11 @@ function showTodoModal(currentProject) {
     let newTodo = new makeTodo(
       modalTitleInput.value,
       modalDescInput.value,
-      currentArray.length, //to make different ids of todos in different projects
+      currentArray.length,                         //to make different ids of todos in different projects
       modalDateInput.value
     );
     currentArray.push(newTodo);
-    console.log(currentArray)
     populateTodo(currentProject);
-
     localStorage[currentProject.name] = JSON.stringify(currentArray);
 
 

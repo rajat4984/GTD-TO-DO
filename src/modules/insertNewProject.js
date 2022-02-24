@@ -1,6 +1,6 @@
 import { handleProjectName } from "..";
 import { hanldeProjectNameBtn } from "..";
-function insertNewProject(projectsArray,newProject) {
+function insertNewProject(newProject) {
   const projectList = document.querySelector(".project-list");
   projectList.innerHTML += `<p id=${newProject.projectId} class="project-name">
   <span class="bullet-points">&#9679;</span>
