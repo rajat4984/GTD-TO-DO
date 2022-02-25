@@ -21,8 +21,6 @@ let projectsArray = [];
 const today = new project("Today", projectsArray.length);
 today.addInArray(projectsArray);
 
-// localStorage.clear();
-
 // if array not found in localstorage only then make the array
 if (!localStorage.getItem("Today")) {
   localStorage.setItem(today.name, JSON.stringify(today.array));
