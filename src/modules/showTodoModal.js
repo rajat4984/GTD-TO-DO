@@ -32,7 +32,6 @@ function showTodoModal(currentProject) {
     currentArray.push(newTodo);
     populateTodo(currentProject);
     localStorage[currentProject.name] = JSON.stringify(currentArray);
-
     modalTitleInput.value = modalDescInput.value = modalDateInput.value = "";
   };
 

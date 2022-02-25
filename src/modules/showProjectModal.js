@@ -1,5 +1,6 @@
 import { project } from "./makeProject";
 import { populateProjects } from "./populateProjects";
+import { handleCrossIcon } from "./showTodoModal";
 
 function showProjectModal(projectsArray) {
   const projectModalContent = document.querySelector(".project-modal-content");
@@ -19,16 +20,15 @@ function showProjectModal(projectsArray) {
     localStorage.setItem("projectsArray", JSON.stringify(projectsArray));
     localStorage.setItem(newProject.name ,JSON.stringify(newProject.array));
     populateProjects(projectsArray)
-    projectTitleInput.value = "";
     addProjectBtn.removeEventListener("click", handleAddBtn);
   };
 
   const handleCrossIcon = () => {
     projectModalContent.style.display = "none";
-    projectTitleInput.value = "";
     addProjectBtn.removeEventListener("click", handleAddBtn);
   };
-
+  
+  projectTitleInput.value = "";
   addProjectBtn.addEventListener("click", handleAddBtn);
   modalCrossIcon.addEventListener("click", handleCrossIcon);
 }
