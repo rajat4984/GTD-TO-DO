@@ -18,11 +18,15 @@ function populateProjects(projectsArray) {
         </p>`;
     }
   }
+
+  //targeting projectNameText here so that we can updated projectName list
   const projectNameText = document.querySelectorAll(".project-name-text");
   projectNameText.forEach((item) => {
     item.addEventListener("click", handleProjectName.bind(item));
   });
 
+
+  //targeting projectNameBtn here so that we can updated projectNameBtn list
   const projectNameBtn = document.querySelectorAll(".project-name-btn");
   projectNameBtn.forEach((icon) => {
     icon.addEventListener("click", hanldeProjectNameBtn.bind(icon));
