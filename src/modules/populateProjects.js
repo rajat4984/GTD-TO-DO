@@ -5,7 +5,6 @@ function populateProjects(projectsArray) {
   projectList.innerHTML = "";
   for (let i = 0; i < projectsArray.length; i++) {
     if (i === 0) {
-      console.log("hello");
       projectList.innerHTML += `<p id=${projectsArray[i].projectId} class="project-name">
             <span class="bullet-points">&#9679;</span>
             <span class="project-name-text"> ${projectsArray[i].name} </span>

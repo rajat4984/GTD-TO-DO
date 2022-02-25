@@ -41,6 +41,11 @@ i {
   border-radius: 10px;
 }
 
+/* ----------------------ANIMATION CLASSES--------------------------- */
+.removed{
+  transform: translateX(100vw);
+}
+
 /* ------------NAVBAR--------------------------- */
 
 .navbar {
@@ -51,8 +56,7 @@ i {
   font-size: 1.5rem;
 }
 
-.brand,
-.nav-links {
+.brand {
   cursor: pointer;
   transition: 0.3s;
 }
@@ -70,22 +74,19 @@ i {
   color: var(--myWhite);
 }
 
-.nav-span {
-  color: var(--myGreen);
-  transition: 0.3s;
+.hamburger {
+  cursor: pointer;
+  display: none;
 }
 
-.nav-link-item {
-  transition: 0.3s;
-  color: var(--myWhite);
-}
-
-.nav-link-item:hover {
-  color: var(--myGreen);
-}
-
-.nav-link-item:hover > .nav-span {
-  color: var(--myWhite);
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  background-color: var(--myWhite);
+  border-radius: 5px;
+  transition: 0.1s ease-in;
 }
 
 /* --------------------------APP-CONTENT----------------------------- */
@@ -130,20 +131,6 @@ i {
   padding: 0.5em 0;
   transition: 0.2s;
   cursor: pointer;
-  border-radius: 5px;
-}
-
-.project-name-btn {
-  display: none;
-}
-
-.project-name:hover .project-name-btn {
-  display: inline;
-}
-
-.project-name-btn:hover {
-  background-color: rgba(110, 110, 110, 0.384);
-  padding: 0.2em;
   border-radius: 5px;
 }
 
@@ -197,6 +184,7 @@ i {
   border-width: thin;
   display: flex;
   justify-content: space-between;
+  transition: transform 1s 0s;
 }
 .todo-list:first-child {
   padding-top: 0;
@@ -295,7 +283,7 @@ input[type="checkbox"]:checked + .todo-label::before {
 .new-todo-btn:hover,
 .modal-todo-btn > button:hover,
 .edit-modal-todo-btn > button:hover,
-.project-modal-add-btn > button:hover  {
+.project-modal-add-btn > button:hover {
   background-color: var(--myLightBlack);
   border: 1px solid var(--myGreen);
   color: var(--myGreen);
@@ -345,7 +333,8 @@ input[type="checkbox"]:checked + .todo-label::before {
 }
 
 .modal-todo-info > label,
-.edit-modal-todo-info > label ,.project-modal-label > label {
+.edit-modal-todo-info > label,
+.project-modal-label > label {
   padding: 1em 0;
 }
 
@@ -379,8 +368,57 @@ input[type="checkbox"]:checked + .todo-label::before {
   width: 30%;
 }
 
-
-.project-modal{
+.project-modal {
   padding: 1em;
   height: 20vh;
+}
+
+/* ----------------------------------MEDIA QUERIES------------------------------ */
+
+@media (max-width: 1050px) {
+  html {
+    font-size: small;
+  }
+  .hamburger {
+    display: block;
+  }
+  .hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+  .hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .project-section {
+    z-index: 1;
+    position: fixed;
+    left: -100%;
+    top: 70px;
+    gap: 0;
+    width: 100%;
+    transition: 0.3s;
+  }
+
+  .project-section.active {
+    left: 0;
+  }
+
+  .app-content {
+    grid-template-columns: 1fr;
+    justify-content: center;
+  }
+
+  .todo-desc {
+    max-width: 70%;
+    word-wrap: break-word;
+  }
+  .modal,
+  .edit-modal,
+  .project-modal {
+    width: 50%;
+    height: 30%;
+  }
 }

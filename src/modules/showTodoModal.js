@@ -17,9 +17,9 @@ function showTodoModal(currentProject) {
   modalContent.style.display = "flex";
   let newDate = format(new Date(), "yyyy-MM-dd");
   modalDateInput.setAttribute("min", newDate);
+  modalDateInput.value = newDate;
   const handleAddTodo = () => {
     if (modalTitleInput.value === "") return;
-    if (modalDateInput.value === "") modalDateInput.value = newDate;
 
     let newTodo = new makeTodo(
       modalTitleInput.value,

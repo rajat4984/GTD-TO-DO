@@ -1,7 +1,7 @@
 function deleteTodo(currentProject) {
   let currentArray = currentProject.array;
   const deleteTodoIcon = document.querySelectorAll(".todo-icons > .bi-trash");
-  const titleLabel = document.querySelectorAll(".todo-title");
+  const titleLabel = document.querySelectorAll(".todo-label");
 
   const removeTodo = (element, elementId) => {
     currentArray.splice(elementId, 1);

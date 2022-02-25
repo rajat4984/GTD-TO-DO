@@ -15,6 +15,8 @@ const projectNameText = document.querySelectorAll(".project-name-text");
 const headingDate = document.querySelector(".todo-heading-date");
 const projectNameBtn = document.querySelectorAll(".project-name-btn");
 const projectList = document.querySelector(".project-list");
+const hamburger = document.querySelector(".hamburger");
+const projectSection = document.querySelector(".project-section");
 
 //today array
 let projectsArray = [];
@@ -36,7 +38,7 @@ projectsArray = localProjectsArray;
 let currentProject = today;
 let retrievedData = localStorage.getItem(currentProject.name);
 currentProject.array = JSON.parse(retrievedData);
-headingDate.textContent = format(new Date(), "dd/MM/yyyy");
+headingDate.textContent = format(new Date(), "yyyy-MM-dd");
 
 // -------------------------------NORMAL FUNCTIONS------------------------------
 populateTodo(currentProject);
@@ -57,6 +59,9 @@ const handleProjectName = (e) => {
   currentProject.array = JSON.parse(retrievedData);
 
   headingDate.innerText = format(new Date(), "dd/MM/yyyy");
+
+  hamburger.classList.remove("active");
+  projectSection.classList.remove("active");
   populateTodo(currentProject);
   deleteTodo(currentProject);
   showEditModal(currentProject);
@@ -81,6 +86,11 @@ const hanldeProjectNameBtn = (e) => {
   populateProjects(projectsArray);
 };
 
+const handleHamburger = (e) => {
+  hamburger.classList.toggle("active");
+  projectSection.classList.toggle("active");
+};
+
 populateProjects(projectsArray);
 
 // --------------------------------EVENT LISTENERS----------------------------------
@@ -93,5 +103,6 @@ projectNameText.forEach((item) => {
 projectNameBtn.forEach((icon) => {
   icon.addEventListener("click", hanldeProjectNameBtn.bind(icon));
 });
+hamburger.addEventListener("click", handleHamburger);
 
 export { handleProjectName, hanldeProjectNameBtn };
