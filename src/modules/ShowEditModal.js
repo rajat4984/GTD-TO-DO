@@ -1,7 +1,7 @@
 import { format } from "date-fns";
-
+import { populateTodo } from "./populateTodo";
 function showEditModal(currentProject) {
-  let currentArray = currentProject.array
+  let currentArray = currentProject.array;
   const editTodoIcon = document.querySelectorAll(".todo-icons > .bi-pencil");
   const handleEditIcon = (e) => {
     const editModal = document.querySelector(".edit-modal-content");
@@ -12,17 +12,13 @@ function showEditModal(currentProject) {
     const editModalDateInput = document.querySelector(".edit-modal-date-input");
     const editTodoBtn = document.querySelector(".edit-modal-todo-btn > button");
     const editModalCrossIcon = document.querySelector(".edit-modal-cross-icon");
-    const titleLabel = document.querySelectorAll(".todo-label");
-    const descLabel = document.querySelectorAll(".todo-desc");
-    const dueDateLabel = document.querySelectorAll(".todo-due-date");
+    const todoList = document.querySelector(".todo-list");
 
+    editModal.style.display = "flex";
     let newDate = format(new Date(), "yyyy-MM-dd");
     editModalDateInput.setAttribute("min", newDate);
-    const todoList = document.querySelector(".todo-list");
-    editModal.style.display = "flex";
     let element = e.target.parentNode.previousElementSibling.parentNode;
     let elementId = Array.from(todoList.children).indexOf(element);
-
 
     editModalTitleInput.value = currentArray[elementId].title;
     editModalDescInput.value = currentArray[elementId].desc;
@@ -30,24 +26,24 @@ function showEditModal(currentProject) {
 
     const handleEditTodo = () => {
       editModal.style.display = "none";
+
+      //updating currentArray with edited values
       currentArray[elementId].title = editModalTitleInput.value;
       currentArray[elementId].desc = editModalDescInput.value;
       currentArray[elementId].dueDate = editModalDateInput.value;
-
-      titleLabel[elementId].textContent = currentArray[elementId].title;
-      descLabel[elementId].textContent = currentArray[elementId].desc;
-      dueDateLabel[elementId].textContent = currentArray[elementId].dueDate;
-
       localStorage[currentProject.name] = JSON.stringify(currentArray);
+
+      populateTodo(currentProject);
 
       editTodoBtn.removeEventListener("click", handleEditTodo);
     };
-    editTodoBtn.addEventListener("click", handleEditTodo);
+
     const handleCrossIcon = () => {
       editModal.style.display = "none";
       editTodoBtn.removeEventListener("click", handleEditTodo);
     };
 
+    editTodoBtn.addEventListener("click", handleEditTodo);
     editModalCrossIcon.addEventListener("click", handleCrossIcon);
   };
 
