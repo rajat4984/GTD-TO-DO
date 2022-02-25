@@ -311,7 +311,7 @@ input[type="checkbox"]:checked + .todo-label::before {
   text-align: center;
 }
 
-/* -------------------------ADD NEW TODO MODAL----------------------------------------- */
+/* -------------------------MODALS----------------------------------------- */
 
 .modal-content,
 .edit-modal-content,

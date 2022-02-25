@@ -10,17 +10,20 @@ import { populateProjects } from "./modules/populateProjects";
 
 const newTodoBtn = document.querySelector(".new-todo-btn");
 const newProjectIcon = document.querySelector(".new-project-btn");
-let projectsArray = [];
-const today = new project("Today", projectsArray.length);
-today.addInArray(projectsArray);
 const todoHeading = document.querySelector(".todo-heading");
 const projectNameText = document.querySelectorAll(".project-name-text");
 const headingDate = document.querySelector(".todo-heading-date");
 const projectNameBtn = document.querySelectorAll(".project-name-btn");
 const projectList = document.querySelector(".project-list");
 
+//today array
+let projectsArray = [];
+const today = new project("Today", projectsArray.length);
+today.addInArray(projectsArray);
+
 // localStorage.clear();
 
+// if array not found in localstorage only then make the array
 if (!localStorage.getItem("Today")) {
   localStorage.setItem(today.name, JSON.stringify(today.array));
 }
@@ -28,32 +31,35 @@ if (!localStorage.getItem("projectsArray")) {
   localStorage.setItem("projectsArray", JSON.stringify(projectsArray));
 }
 
+//getting previous projectsArray from localstorage
 let localProjectsArray = JSON.parse(localStorage.getItem("projectsArray"));
 projectsArray = localProjectsArray;
 
 let currentProject = today;
 let retrievedData = localStorage.getItem(currentProject.name);
 currentProject.array = JSON.parse(retrievedData);
-
 headingDate.textContent = format(new Date(), "dd/MM/yyyy");
 
-populateTodo(currentProject);
-
 // -------------------------------NORMAL FUNCTIONS------------------------------
+populateTodo(currentProject);
 deleteTodo(currentProject);
 showEditModal(currentProject);
 
 // ---------------------HANDLER FUNCTIONS---------------------------------
 
+//changes project on click
 const handleProjectName = (e) => {
   let element = e.target.parentNode;
   let elementId = Array.from(projectList.children).indexOf(element);
   todoHeading.innerText = projectsArray[elementId].name;
   currentProject = projectsArray[elementId];
+
+  //retrieving previous todos from localstorage
   let retrievedData = localStorage.getItem(currentProject.name);
   currentProject.array = JSON.parse(retrievedData);
-  populateTodo(currentProject);
+
   headingDate.innerText = format(new Date(), "dd/MM/yyyy");
+  populateTodo(currentProject);
   deleteTodo(currentProject);
   showEditModal(currentProject);
 };
@@ -66,15 +72,15 @@ const handleNewProject = () => {
   showProjectModal(projectsArray);
 };
 
+// deletes project onCLick on trash button
 const hanldeProjectNameBtn = (e) => {
-  let element = e.target.parentNode;
-  let elementId = Array.from(projectList.children).indexOf(element);
-  let elementDeleted = projectsArray[elementId];
-  console.log(elementDeleted)
-  projectsArray.splice(elementId, 1);
+  let clickedProject = e.target.parentNode;
+  let projectId = Array.from(projectList.children).indexOf(clickedProject);
+  let projectDeleted = projectsArray[projectId];
+  projectsArray.splice(projectId, 1);
   localStorage.setItem("projectsArray", JSON.stringify(projectsArray));
-  localStorage.removeItem(elementDeleted.name);
-  element.remove();
+  localStorage.removeItem(projectDeleted.name);
+  populateProjects(projectsArray);
 };
 
 populateProjects(projectsArray);
