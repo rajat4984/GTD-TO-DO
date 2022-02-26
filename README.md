@@ -8,5 +8,5 @@
 
 ### Features
 - User can add differnet projects and categories todos for each project.
-- All the things willbe save with localSotrage.
+- All the things will be saved in localSotrage.
 - User can edit todo.
