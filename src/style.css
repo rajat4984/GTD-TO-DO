@@ -142,9 +142,8 @@ i {
 }
 
 .new-project-btn,
-.project-name-btn,                                /*Icons*/
-.modal-cross-icon,
-.edit-modal-cross-icon,.project-modal-cross-icon {
+.project-name-btn                               /*Icons*/
+{
   opacity: 0.5;
   transition: 0.2s;
   cursor: pointer;
@@ -321,10 +320,11 @@ input[type="checkbox"]:checked + .todo-label::before {
 .modal,
 .edit-modal,
 .project-modal {
+  position: relative;
   background-color: var(--myGrey);
   width: 20%;
   height: 50%;
-  padding: 0.5em 1em 2em 1em;
+  padding: 0.5em 0em 2em 1em;
   border-radius: 10px;
 }
 
@@ -358,8 +358,17 @@ input[type="checkbox"]:checked + .todo-label::before {
   font-size: 1rem;
 }
 
+.modal-cross-icon,
+.edit-modal-cross-icon,
+.project-modal-cross-icon {
+  position: absolute;
+  left: 87%;
+  top: 5%;
+  cursor: pointer;
+}
+
 .modal-cross-icon:hover,
-.edit-cross-icon:hover,
+.edit-modal-cross-icon:hover,
 .project-modal-cross-icon:hover {
   opacity: 1;
 }
