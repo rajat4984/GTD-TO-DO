@@ -378,7 +378,7 @@ input[type="checkbox"]:checked + .todo-label::before {
 
 /* ----------------------------------MEDIA QUERIES------------------------------ */
 
-@media (min-width:350px) and (max-width:1100px){
+@media (max-width:700px){
   html {
     font-size: small;
   }
@@ -410,11 +410,13 @@ input[type="checkbox"]:checked + .todo-label::before {
   }
 
   .app-content {
-    padding: 1em 2em 2em 1em;
+    padding: 2em 1em 10em 1em;
+    grid-template-columns: 1fr;
+    justify-content: center;
+
   }
   .todo-section {
     max-width: 92vw;
-    justify-self: center;
   }
 
   .todo-info {
