@@ -16,6 +16,10 @@ module.exports = {
         test: /\.css$/i,
         use: [MiniCssExtractPlugin.loader, "css-loader"],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: "asset/resource",
+      },
     ],
   },
   optimization: {
@@ -29,8 +33,9 @@ module.exports = {
       minify: {
         collapseWhitespace: true,
         removeAttributeQuotes: true,
-        removeComments: true, 
+        removeComments: true,
       },
+      favicon: "favicon-16x16.png"
     }),
   ],
   devServer: {
