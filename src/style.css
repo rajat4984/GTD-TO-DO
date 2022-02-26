@@ -185,6 +185,10 @@ i {
   justify-content: space-between;
   transition: transform 1s 0s;
 }
+.todo-icons {
+  min-width: 50px;
+}
+
 .todo-list:first-child {
   padding-top: 0;
 }
@@ -391,10 +395,6 @@ input[type="checkbox"]:checked + .todo-label::before {
     transform: translateY(-8px) rotate(-45deg);
   }
 
-  .app-content{
-    padding: 2em 1em 10em 1em;
-  }
-
   .project-section {
     z-index: 1;
     position: fixed;
@@ -410,13 +410,13 @@ input[type="checkbox"]:checked + .todo-label::before {
   }
 
   .app-content {
+    padding: 2em 1em 10em 1em;
     grid-template-columns: 1fr;
     justify-content: center;
   }
 
   .todo-desc {
-    max-width: 70%;
-    display: inline-block;
+    max-width: 60%;
     margin: 0;
     word-wrap: break-word;
   }
