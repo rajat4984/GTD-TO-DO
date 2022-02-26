@@ -38,7 +38,7 @@ projectsArray = localProjectsArray;
 let currentProject = today;
 let retrievedData = localStorage.getItem(currentProject.name);
 currentProject.array = JSON.parse(retrievedData);
-headingDate.textContent = format(new Date(), "yyyy-MM-dd");
+headingDate.textContent = format(new Date(), "dd-MM-yyyy");
 
 // -------------------------------NORMAL FUNCTIONS------------------------------
 populateTodo(currentProject);

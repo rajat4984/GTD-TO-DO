@@ -1,6 +1,17 @@
 import { makeTodo } from "./MakeTodo";
 import { populateTodo } from "./populateTodo";
 import { format } from "date-fns";
+
+//formats date from yyyy/MM/dd to dd/MM/yyyy
+const changeDateFormat = (date) => {
+  let splitArray = date.split("-");
+  let temp = splitArray[0];
+  splitArray[0] = splitArray[2];
+  splitArray[2] = temp;
+  splitArray = splitArray.toString();
+  splitArray = splitArray.replace(/,/g, "-");
+  return splitArray;
+};
 function showTodoModal(currentProject) {
   const modalContent = document.querySelector(".modal-content");
   const modalTitleInput = document.querySelector(".modal-title-input");
@@ -15,17 +26,20 @@ function showTodoModal(currentProject) {
   let currentArray = currentProject.array;
 
   modalContent.style.display = "flex";
+
   let newDate = format(new Date(), "yyyy-MM-dd");
   modalDateInput.setAttribute("min", newDate);
-  modalDateInput.value = newDate;
   const handleAddTodo = () => {
+    if (modalDateInput.value === "") modalDateInput.value = newDate;
+
+    let dueDate = changeDateFormat(modalDateInput.value);
     if (modalTitleInput.value === "") return;
 
     let newTodo = new makeTodo(
       modalTitleInput.value,
       modalDescInput.value,
       currentArray.length, //to make different ids of todos in different projects
-      modalDateInput.value
+      dueDate
     );
 
     //updating currentArray
@@ -44,4 +58,4 @@ function showTodoModal(currentProject) {
   modalCrossIcon.addEventListener("click", handleCrossIcon);
 }
 
-export { showTodoModal };
+export { showTodoModal, changeDateFormat };
