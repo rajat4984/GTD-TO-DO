@@ -72,6 +72,8 @@ const handleMakeTodo = () => {
 };
 
 const handleNewProject = () => {
+  hamburger.classList.remove("active");
+  projectSection.classList.remove("active");
   showProjectModal(projectsArray);
 };
 
@@ -86,7 +88,7 @@ const hanldeProjectNameBtn = (e) => {
   populateProjects(projectsArray);
 };
 
-const handleHamburger = (e) => {
+const handleHamburger = () => {
   hamburger.classList.toggle("active");
   projectSection.classList.toggle("active");
 };

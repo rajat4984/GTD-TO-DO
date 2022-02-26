@@ -42,7 +42,7 @@ i {
 }
 
 /* ----------------------ANIMATION CLASSES--------------------------- */
-.removed{
+.removed {
   transform: translateX(100vw);
 }
 
@@ -96,7 +96,6 @@ i {
   grid-template-columns: 1fr 3fr;
   justify-content: space-between;
   padding: 3em 3em 10em 3em;
-  max-width: 85%;
   grid-column-gap: 3em;
 }
 
@@ -121,7 +120,7 @@ i {
 }
 
 .project-section {
-  max-height: 500px;
+  max-height: 400px;
 }
 .project-sub-section {
   padding: 2em 1em;
@@ -392,6 +391,10 @@ input[type="checkbox"]:checked + .todo-label::before {
     transform: translateY(-8px) rotate(-45deg);
   }
 
+  .app-content{
+    padding: 2em 1em 10em 1em;
+  }
+
   .project-section {
     z-index: 1;
     position: fixed;
@@ -413,12 +416,17 @@ input[type="checkbox"]:checked + .todo-label::before {
 
   .todo-desc {
     max-width: 70%;
+    display: inline-block;
+    margin: 0;
     word-wrap: break-word;
   }
   .modal,
   .edit-modal,
   .project-modal {
     width: 50%;
-    height: 30%;
+    height: 40%;
+  }
+  .project-modal {
+    height: 20%;
   }
 }
